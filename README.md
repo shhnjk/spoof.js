@@ -3,6 +3,8 @@
 ## How to use
 Attach WinDbg to a renderer process, and run `.scriptrun C:\path\to\spoof.js`. Then you need to call `window.length` from the renderer process's javascript in order to spoof origin and url.
 
+![](demo.gif)
+
 ## Note
 You can edit `target_url` and `target_host` in spoof.js to your desired target. The only requirement is that the length of original scheme and host in the renderer process should be same to the length of target scheme and host.
 For example, if you navigate renderer process to `https://www.shhnjk.com`, you can set your `target_host` to `www.google.com`, but not to `www.apple.com`. This is because `"www.shhnjk.com".length // 14` and `"www.apple.com".length // 13` doesn't match.
