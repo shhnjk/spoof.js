@@ -1,7 +1,7 @@
 # spoof.js
 
 ## How to use
-Attach WinDbg to a renderer process, and run `.scriptrun C:\path\to\spoof.js`. Then you need to call `window.length` from the renderer process's javascript in order to spoof origin and url. You need to have symbols for Chrome in WinDbg. See [WinDBG help](https://www.chromium.org/developers/how-tos/debugging-on-windows/windbg-help) for more detail.
+Attach WinDbg to a renderer process, and run `.scriptrun C:\path\to\spoof.js`. Then you need to call `window.length` from the renderer process's javascript in order to spoof origin and url. You need to have symbols for Chrome in WinDbg. See [WinDBG help](https://www.chromium.org/developers/how-tos/debugging-on-windows/windbg-help) for more details.
 
 ![](demo.gif)
 
