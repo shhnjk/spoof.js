@@ -1,7 +1,7 @@
 # spoof.js
 
 ## How to use
-Attach WinDbg to a renderer process, and run `.scriptrun C:\path\to\spoof.js`. Then you need to call `window.length` from the renderer process's javascript in order to spoof origin and url.
+Attach WinDbg to a renderer process, and run `.scriptrun C:\path\to\spoof.js`. Then you need to call `window.length` from the renderer process's javascript in order to spoof origin and url. You need to have symbols for Chrome in WinDbg. See [WinDBG help](https://www.chromium.org/developers/how-tos/debugging-on-windows/windbg-help) for more detail.
 
 ![](demo.gif)
 
@@ -12,5 +12,5 @@ For example, if you navigate renderer process to `https://www.shhnjk.com`, you c
 ## Tips for testing Site Isolation
 Once origin and url is spoofed, you can call random Javascript API to see if that bypasses Site Isolation. If the renderer process crashes after calling some API (e.g. postMessage), it means Site Isolation detected that specific IPC call with spoofed origin/url.
 
-Here is an example of Site Isolation bypass that was found by this script.
+Here is an example of Site Isolation bypass which was found by using this script.
 https://bugs.chromium.org/p/chromium/issues/detail?id=915398
