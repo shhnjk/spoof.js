@@ -12,5 +12,5 @@ For example, if you navigate renderer process to `https://www.shhnjk.com`, you c
 ## Tips for testing Site Isolation
 Once origin and url are spoofed, you can call random Javascript API to see if that bypasses Site Isolation. If the renderer process crashes after calling some API (e.g. postMessage), it means Site Isolation detected that specific IPC call with spoofed origin/url.
 
-Here is an example of Site Isolation bypass that was found by using this script.
+Here is an example of Site Isolation bypass that was found using this script.
 https://bugs.chromium.org/p/chromium/issues/detail?id=915398
