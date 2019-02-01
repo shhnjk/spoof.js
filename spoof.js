@@ -8,7 +8,7 @@ function returnAddress(command, include, search, padding, length){
 	var ctl = host.namespace.Debugger.Utility.Control;
 	var output = ctl.ExecuteCommand(command);
 	for (var line of output){
-        //	host.diagnostics.debugLog("***> " + line + "\n");
+        	//host.diagnostics.debugLog("***> " + line + "\n");
 		if(line.includes(include)){
 			host.diagnostics.debugLog("***> " + line + "\n");
 			//host.diagnostics.debugLog("***> search: " + search + "\n");
