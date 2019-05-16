@@ -1,5 +1,5 @@
 // .scriptrun C:\windbg\spoof.js
-host.diagnostics.debugLog("***> Starting \spoof.js :) \n");
+host.diagnostics.debugLog("***> Starting spoof.js :) \n");
 
 var target_url = "https://www.google.com";
 var target_host = "www.google.com";
