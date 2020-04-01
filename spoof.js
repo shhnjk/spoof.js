@@ -31,5 +31,5 @@ function spoof(){
 
 function invokeScript(){
 	var ctl = host.namespace.Debugger.Utility.Control;
-	ctl.ExecuteCommand('bp chrome_child!blink::DOMWindow::length "dx Debugger.State.Scripts.spoof.Contents.spoof()";g');
+	ctl.ExecuteCommand('bp chrome!blink::DOMWindow::length "dx Debugger.State.Scripts.spoof.Contents.spoof()";g');
 }
