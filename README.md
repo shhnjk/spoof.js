@@ -2,7 +2,7 @@
 `spoof.js` is a JavaScript debugger extension for WinDbg which helps spoof origin and url of Chrome's renderer process.
 
 ## How to use
-Attach WinDbg to a renderer process, and run `.scriptrun C:\path\to\spoof.js`. Then you need to call `window.length` from the renderer process's Javascript in order to spoof origin and url. You need to have symbols for Chrome in WinDbg. See [WinDBG help](https://www.chromium.org/developers/how-tos/debugging-on-windows/windbg-help) for more details.
+Attach WinDbg to a renderer process, and run `.scriptrun C:\path\to\spoof.js`. Then you need to call `window.length` from the renderer process's Javascript in order to spoof origin and url. You need to have symbols for Chrome in WinDbg. See [WinDbg help](https://www.chromium.org/developers/how-tos/debugging-on-windows/windbg-help) for more details.
 
 ![](demo.gif)
 
