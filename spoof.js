@@ -1,6 +1,7 @@
 // .scriptrun C:\windbg\spoof.js
 host.diagnostics.debugLog("***> Starting spoof.js :) \n");
 
+// Set these to an empty string if you don't want to modify the origin/URL.
 var target_url = "https://www.google.com";
 var target_host = "www.google.com";
 
@@ -22,11 +23,18 @@ function spoof(){
 	host.diagnostics.debugLog("***> spoof!!! \n");
 	
 	var ctl = host.namespace.Debugger.Utility.Control;
-	var origin = returnAddress("dx @$scriptContents.host.currentThread.Stack.Frames[0].LocalVariables.this[0].document_.Raw[0].security_origin_.Ptr[0].host_.Impl", "AsciiText", ":", 2, 14);
-	var url = returnAddress("dx @$scriptContents.host.currentThread.Stack.Frames[0].LocalVariables.this[0].document_.Raw[0].url_.string_.Impl", "AsciiText", ":", 2, 14);
 
-	ctl.ExecuteCommand('ea ' + origin + ' "' + target_host + '"');
-	ctl.ExecuteCommand('ea ' + url + ' "' + target_url + '";g');
+	if (target_host != "") {
+		var origin = returnAddress("dx @$scriptContents.host.currentThread.Stack.Frames[0].LocalVariables.this[0].security_context_.security_origin_.Ptr[0].host_.Impl", "AsciiText", ":", 2, 14);
+		ctl.ExecuteCommand('ea ' + origin + ' "' + target_host + '"');
+	}
+
+	if (target_url != "") {
+		var url = returnAddress("dx @$scriptContents.host.currentThread.Stack.Frames[0].LocalVariables.this[0].document_.Raw[0].url_.string_.Impl", "AsciiText", ":", 2, 14);
+		ctl.ExecuteCommand('ea ' + url + ' "' + target_url + '"');
+	}
+
+	ctl.ExecuteCommand('g');
 }
 
 function invokeScript(){
